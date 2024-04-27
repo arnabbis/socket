@@ -19,7 +19,7 @@
   <body>
     <ul id="messages"></ul>
     <form id="form" action="">
-      <input id="input" autocomplete="off" /><button style="background-color: blue; color: white;">Send</button>
+      <input id="input" autocomplete="off" /><button style="background-color: blue; color: white;">Send</button><button id="disconnect" style="background-color: blueviolet color(srgb rgb(249, 245, 245) green blue);">Disconnect</button><button id="connect" style="background-color: blueviolet color(srgb rgb(249, 245, 245) green blue);">Connect</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -37,6 +37,18 @@
       input.value = '';
     }
   });
+
+  function connect(){
+    socket.connect();
+    alert("Connected");
+  }
+  function disconnect() {
+    socket.disconnect();
+    alert("Disconnected");
+  }
+
+  document.getElementById("connect").addEventListener("click", connect);
+  document.getElementById("disconnect").addEventListener("click", disconnect);
 </script>
   </body>
 </html>
